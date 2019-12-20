@@ -1,8 +1,8 @@
 <template>
 	<div class="vc-quill-editor">
-		<div class="__mobile">
+		<div v-show="isFocus" class="__mobile">
 			<slot name="toolbar">
-				<vc-editor-toolbar v-show="options.modules && options.modules.toolbar === '#toolbar' && isFocus">
+				<vc-editor-toolbar v-if="options.modules && options.modules.toolbar === '#toolbar'">
 					<button id="img" style="outline: none; line-height: 1;" >
 						<vc-upload
 							v-bind="uploadOpts"
@@ -107,13 +107,10 @@ export default {
 		width: 100%;
 		overflow-x: auto;
 		padding-top: 100%;
+		z-index: 1;
 	}
 	#toolbar {
 		width: 1120px;
-		// position: fixed;
-		// bottom: 0;
-		// left: 0;
-		// overflow-x: auto;
 	}
 }
 </style>
