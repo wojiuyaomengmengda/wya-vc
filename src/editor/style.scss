@@ -55,7 +55,10 @@ $fontSize: '12px', '14px', '16px', '18px', '20px', '22px', '24px', '50px' !defau
 .ql-snow .ql-picker.ql-header .ql-picker-item[data-value="6"]::before {
 	content: '标题6';
 }
-
+.__mobile .ql-snow .ql-picker.ql-expanded .ql-picker-options {
+	top: inherit;
+	bottom: 100%;
+}
 // .ql-snow .ql-picker.ql-font .ql-picker-label::before,
 // .ql-snow .ql-picker.ql-font .ql-picker-item::before {
 // 	content: '标准字体';
