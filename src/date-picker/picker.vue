@@ -227,17 +227,19 @@ export default {
 			const date = this.isRange ? [] : '';
 			this.isActive = false;
 			this.currentValue = date;
-			this.$emit('clear', date);
 			this.sync('change', date);
+			this.$emit('clear', date);
 		},
 		handleOK(value) {
 			this.isActive = false;
 			const date = this.formatDate(value);
-			this.sync(['ok', 'change'], date);
+			this.sync(['change', 'ok'], date);
 		},
 		handleClose() {
 			let val = this.parseValue(this.value);
-			if (!isEqualWith(this.currentValue, val)) {
+			// 是否有传value值，如果没传currentValue不回滚
+			let isSetValueProp = this.$options.propsData.hasOwnProperty('value'); /* eslint-disable-line */
+			if (!isEqualWith(this.currentValue, val) && isSetValueProp) {
 				this.currentValue = value2Array(val);
 			}
 			this.$emit('close');
